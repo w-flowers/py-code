@@ -1,0 +1,13 @@
+Project description for simple sqlite mailing list
+
+Mailing list:
+
+Database schema: Name (text not NULL), Email (primary id), Organisation (text), Sign-up Date(DATE not NULL), Groups (BOOL)
+
+Middle - Python Code that takes some or all of this information and enters it into the database. Information fed via external application.
+
+Front-end:
+
+- Prototype: CLI interface
+
+- Production: Simple Webpage, connecting to webserver which calls python functions
