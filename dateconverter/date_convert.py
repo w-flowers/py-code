@@ -1,4 +1,7 @@
+# A simple program that takes a date in DMY, MDY or YMD format and converts
+# said date to any of the formats above, according to what the user selects.
 
+# Global lists stating which months contain 31 and 30 days respectively.
 m31 = [1, 3, 5, 7, 8, 10, 12]
 m30 = [4, 6, 9, 11]
 
@@ -9,6 +12,8 @@ def is_leap_year(year):
     else:
         return False
     
+# Function which returns true if a given integer day is a valid day in the month (also
+# an integer)
 def day_in_month(day, month, year):
     if month in m31:
         if day > 31 or day < 1:
