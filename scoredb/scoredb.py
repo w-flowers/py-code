@@ -29,17 +29,22 @@ def add_score_to_db(name, score, time_taken, db_path):
     return
 
 
-def return_stats(db_path, number = 10):
+def return_stats(db_path, number = 10, name = ""):
     
     return_list = []
-    
-    entry_tup = (number,)
     
     conn = sqlite3.connect(db_path)
     
     curs = conn.cursor()
     
-    quer = curs.execute("""select * from scores order by game_number DESC limit ?""", entry_tup)
+    if name == "":
+        entry_tup = (number,)
+        quer = curs.execute("""select * from scores order by game_number DESC limit ?""", entry_tup)
+    
+    else:
+        entry_tup = (name, number)
+        quer = curs.execute("""select * from scores where username = ? 
+        order by game_number DESC limit ?""", entry_tup)
     
     for items in quer:
         return_list.append(items)
